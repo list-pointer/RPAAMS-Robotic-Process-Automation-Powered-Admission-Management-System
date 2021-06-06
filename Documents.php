@@ -1,10 +1,10 @@
 <?php
 
 
-// error_reporting(0);
+error_reporting(0);
 session_start();
 
-// include 'FileUpload.php';   
+include 'FileUpload.php';   
 ?>
 <html>
     <head>
@@ -17,7 +17,7 @@ session_start();
        <script src="bootstrap/jquery.min.js"></script>
         <script src="bootstrap/bootstrap.min.js"></script>
         
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             
             function send()
             {
@@ -28,7 +28,7 @@ session_start();
                     }
                     return true;
             }
-        </script>
+        </script> -->
     </head>
     <body style="background-image:url('./images/inbg.jpg');">
         <form id="docup" enctype="multipart/form-data" name="docup" action="documents.php" method="post">
@@ -133,8 +133,8 @@ session_start();
                           
                                 </font></p>
                            
-                           <input type="checkbox" id="dec" name="dec" value="I accept" onclick="send()"><font style=" font-family: Verdana;font-size:medium">
-                           I accept</font>
+                           <!-- <input type="checkbox" id="dec" name="dec" value="I accept" onclick="send()"><font style=" font-family: Verdana;font-size:medium">
+                           I accept</font> -->
                                
                            
                          

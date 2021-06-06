@@ -1,6 +1,6 @@
 
 <?php
-// session_start();
+session_start();
 $sp=mysqli_connect("localhost","root","","onlineadmission");
          if($sp->connect_errno){
                 echo "Error <br/>".$sp->error;
@@ -10,8 +10,8 @@ $picpath="studentpic/";
 $docpath="studentdoc/";
 $proofpath="studentproof/";
 $id=$_SESSION['user'];
-// if(isset($_POST['fpicup']))
-// {
+if(isset($_POST['fpicup']))
+{
 $picpath=$picpath.$_FILES['fpic']['name'];
 $docpath1=$docpath.$_FILES['ftndoc']['name'];     
 $docpath2=$docpath.$_FILES['ftcdoc']['name']; 
@@ -55,5 +55,5 @@ else
     alert("error 2");
 echo "There is an error,please retry or check path";
 }
-// }
+}
  ?>
