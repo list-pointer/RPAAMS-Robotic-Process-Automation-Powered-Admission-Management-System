@@ -1,7 +1,7 @@
 <?php
     error_reporting(0);
 $getid= $_GET["id"];
-$con=mysqli_connect("localhost","root","","onlineadmission");
+$con=mysqli_connect("localhost","root","","rpaams");
 if(!isset($con))
 {
     die("Database Not Found");

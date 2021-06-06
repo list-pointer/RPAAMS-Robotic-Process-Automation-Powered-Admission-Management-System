@@ -12,7 +12,7 @@ $dob=$_REQUEST["in_dob"];
 $eml=$_REQUEST["in_eml"];
 $mob=$_REQUEST["in_mob"];
 
-$con=mysqli_connect("localhost","root","","onlineadmission");
+$con=mysqli_connect("localhost","root","","rpaams");
 if(!isset($con))
 {
     die("Database Not Found");
@@ -46,7 +46,7 @@ if(isset($_REQUEST["in_sub"]))
 }
   function StudentCode()
   {
-      $con = mysqli_connect("localhost", "root", "", "onlineadmission");
+      $con = mysqli_connect("localhost", "root", "", "rpaams");
       $rs  = mysqli_query($con,"select CONCAT('CUTM',LPAD(RIGHT(ifnull(max(s_id),'CUTM00000'),5) + 1,5,'0')) from t_user_data");
       return mysqli_fetch_array($rs)[0];
   }

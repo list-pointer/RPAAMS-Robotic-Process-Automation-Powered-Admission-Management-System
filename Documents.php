@@ -16,20 +16,8 @@ include 'FileUpload.php';
          <link rel="stylesheet" href="bootstrap/bootstrap-theme.min.css">
        <script src="bootstrap/jquery.min.js"></script>
         <script src="bootstrap/bootstrap.min.js"></script>
-        
-        <!-- <script type="text/javascript">
-            
-            function send()
-            {
-                if(document.getElementById('dec').checked)
-                    {
-                        window.location='AdmissionReport.php';
-                        return false;
-                    }
-                    return true;
-            }
-        </script> -->
     </head>
+
     <body style="background-image:url('./images/inbg.jpg');">
         <form id="docup" enctype="multipart/form-data" name="docup" action="documents.php" method="post">
             <div class="container-fluid">    
@@ -132,12 +120,7 @@ include 'FileUpload.php';
                                     In case the particulars furnished by me are found false, my admission stands canceled.
                           
                                 </font></p>
-                           
-                           <!-- <input type="checkbox" id="dec" name="dec" value="I accept" onclick="send()"><font style=" font-family: Verdana;font-size:medium">
-                           I accept</font> -->
-                               
-                           
-                         
+                            
                   </div>
             </div>
         </form>

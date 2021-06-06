@@ -1,23 +1,27 @@
 
 <?php
 session_start();
-$sp=mysqli_connect("localhost","root","","onlineadmission");
+$sp=mysqli_connect("localhost","root","","rpaams");
          if($sp->connect_errno){
                 echo "Error <br/>".$sp->error;
 }
 
 $picpath="studentpic/";
-$docpath="studentdoc/";
+$docpath_aadhar="aadhar/";
+$docpath_hsc="hsc/";
+$docpath_ssc="ssc/";
+$docpath_hsc_lc="hsc_lc/";
+$docpath_ssc_lc="ssc_lc/";
 $proofpath="studentproof/";
 $id=$_SESSION['user'];
 if(isset($_POST['fpicup']))
 {
 $picpath=$picpath.$_FILES['fpic']['name'];
-$docpath1=$docpath.$_FILES['ftndoc']['name'];     
-$docpath2=$docpath.$_FILES['ftcdoc']['name']; 
-$docpath3=$docpath.$_FILES['fdmdoc']['name']; 
-$docpath4=$docpath.$_FILES['fdcdoc']['name'];     
-$proofpath1=$proofpath.$_FILES['fide']['name']; 
+$docpath1=$docpath_ssc.$_FILES['ftndoc']['name']; 
+$docpath2=$docpath_ssc_lc.$_FILES['ftcdoc']['name'];   
+$docpath3=$docpath_hsc.$_FILES['fdmdoc']['name'];  
+$docpath4=$docpath_hsc_lc.$_FILES['fdcdoc']['name']; 
+$proofpath1=$docpath_aadhar.$_FILES['fide']['name'];      
 $proofpath2=$proofpath.$_FILES['fsig']['name']; 
 
 if(move_uploaded_file($_FILES['fpic']['tmp_name'],$picpath)
@@ -42,11 +46,9 @@ $query="insert into t_userdoc (s_id,s_pic,s_tenmarkpic,s_tencerpic,
     s_twdmarkpic, s_twdcerpic, s_idprfpic, s_sigpic) values 
     ('$id','$img','$img1','$img2','$img3','$img4','$img5','$img6')";
         if($sp->query($query)){
-     echo "Inserted to DB ";    
+    header('location:AdmissionReport.php');    
     }else
     {
-        // echo "Error <br/>".$sp->error;  
-        // alert($sp->error);  
         alert("error 1");    
     }
 }

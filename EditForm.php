@@ -58,7 +58,7 @@
     $moi  = $_REQUEST["moi"];
     $pay= $_REQUEST["pay"];
     
-    $con=mysqli_connect("localhost","root","","onlineadmission");
+    $con=mysqli_connect("localhost","root","","rpaams");
     
     
     if(!isset($con))

@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect("localhost","root","","onlineadmission") or die(mysqli_error());
+$con = mysqli_connect("localhost","root","","rpaams") or die(mysqli_error());
 if($_POST)
 {
 $q=$_POST['search'];

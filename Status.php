@@ -2,7 +2,7 @@
 extract($_POST);
 $sid=$_REQUEST["s_id"];
 
-$con=mysqli_connect("localhost","root","","onlineadmission");
+$con=mysqli_connect("localhost","root","","rpaams");
 if(!isset($con))
 {
     die("Database Not Found");

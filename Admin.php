@@ -2,14 +2,7 @@
 error_reporting(0);
 session_start();
 
-//  if (!isset($_SESSION['user']))
-// {
-//         echo "<br><h2>You are not Logged On Please Login to Access this Page</div></h2>";
-//         echo "<a href=AdminLogin.php><h3 align=center>Click Here to Login</h3></a>";
-//         exit();
-// }
-
-$con=mysqli_connect("localhost","root","","onlineadmission");
+$con=mysqli_connect("localhost","root","","rpaams");
  
 if($_REQUEST["srchk"]!="")
 {
@@ -100,7 +93,7 @@ if(isset($_REQUEST["submitmarks"]))
 
  function AdminCode()
   {
-      $con = mysqli_connect("localhost", "root", "", "onlineadmission");
+      $con = mysqli_connect("localhost", "root", "", "rpaams");
       $rs  = mysqli_query($con,"select CONCAT('AD',LPAD(RIGHT(ifnull(max(ad_id),'AD00000'),5) + 1,5,'0')) from t_admin");
       return mysqli_fetch_array($rs)[0];
   }

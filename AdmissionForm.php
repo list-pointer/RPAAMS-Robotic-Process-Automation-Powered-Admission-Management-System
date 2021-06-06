@@ -61,7 +61,7 @@
     $moi  = $_REQUEST["moi"];
     $pay= $_REQUEST["pay"];
     
-    $con=mysqli_connect("localhost","root","","onlineadmission");
+    $con=mysqli_connect("localhost","root","","rpaams");
     
     
     if(!isset($con))
@@ -141,7 +141,7 @@
     
     function DetCode()
 {
-      $con = mysqli_connect("localhost", "root", "", "onlineadmission");
+      $con = mysqli_connect("localhost", "root", "", "rpaams");
       $rs  = mysqli_query($con,"select CONCAT('DE',LPAD(RIGHT(ifnull(max(s_detid),'DE00000000'),8) + 1,8,'0')) from t_user");
       return mysqli_fetch_array($rs)[0];
 }

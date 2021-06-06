@@ -3,7 +3,7 @@
     session_start();
     error_reporting(0);
 
-$con=mysqli_connect("localhost","root","","onlineadmission");
+$con=mysqli_connect("localhost","root","","rpaams");
 $q=mysqli_query($con,"select s_name from t_user_data where s_id='".$_SESSION['user']."'");
 $n=  mysqli_fetch_assoc($q);
 $stname= $n['s_name'];

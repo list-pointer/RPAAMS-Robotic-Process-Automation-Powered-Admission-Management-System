@@ -1,7 +1,7 @@
 
 <?php
 session_start();
-$sp=mysqli_connect("localhost","root","","onlineadmission");
+$sp=mysqli_connect("localhost","root","","rpaams");
          if($sp->connect_errno){
                 echo "Error <br/>".$sp->error;
 }

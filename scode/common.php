@@ -1,7 +1,7 @@
 <?php
 function GetComboOptions($qry,$vl)
 {
-    $con=mysqli_connect("localhost","root","","onlineadmission");
+    $con=mysqli_connect("localhost","root","","rpaams");
     $ra = mysqli_query($con, $qry);
 $RETSTR = "<option value=''>Select one...</option>";
 while($r = mysqli_fetch_array($rs)) 

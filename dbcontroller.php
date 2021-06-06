@@ -3,7 +3,7 @@ class DBController {
 	private $host = "localhost";
 	private $user = "root";
 	private $password = "";
-	private $database = "onlineadmission";
+	private $database = "rpaams";
 	
 	function __construct() {
 		$conn = $this->connectDB();
@@ -13,12 +13,12 @@ class DBController {
 	}
 	
 	function connectDB() {
-		$conn=mysqli_connect("localhost","root","","onlineadmission");
+		$conn=mysqli_connect("localhost","root","","rpaams");
 		return $conn;
 	}
 	
 	function selectDB($conn) {
-		mysqli_select_db("onlineadmission");
+		mysqli_select_db("rpaams");
 	}
 	
 	function runQuery($query) {

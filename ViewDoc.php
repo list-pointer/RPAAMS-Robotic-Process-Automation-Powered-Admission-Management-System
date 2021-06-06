@@ -1,7 +1,7 @@
 <?php
     error_reporting(0);
 
-$con=mysqli_connect("localhost","root","","onlineadmission");
+$con=mysqli_connect("localhost","root","","rpaams");
 if(!isset($con))
 {
     die("Database Not Found");
@@ -78,7 +78,7 @@ $prooffile_path ='studentproof/';
                         echo "<td><a href='$docsrc1.' width='300px' height='300px'> View </a></td></tr>";
                         
                         $docsrc2=$docfile_path.$row['s_tencerpic'];
-                        echo '<tr><td>10th Certificate</td>';
+                        echo '<tr><td>10th Leaving Certificate</td>';
                         echo "<td><a href='$docsrc2.' width='300px' height='300px'> View </a></td></tr>";
                         
                         
@@ -87,7 +87,7 @@ $prooffile_path ='studentproof/';
                         echo "<td><a href='$docsrc3.' width='300px' height='300px'> View </a></td></tr>";
                         
                         $docsrc4=$docfile_path.$row['s_twdcerpic'];
-                        echo '<tr><td>12th/Diploma Certificate</td>';
+                        echo '<tr><td>12th/Diploma Leaving Certificate</td>';
                         echo "<td><a href='$docsrc4.' width='300px' height='300px'> View </a></td></tr>";
                         
                         $proofsrc1=$prooffile_path.$row['s_idprfpic'];
