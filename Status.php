@@ -13,7 +13,7 @@ if(isset($_REQUEST["acp"]))
     $sql .= "'Approved'";
     $sql .= " where s_id='" . $sid . "'";
     mysqli_query($con, $sql);
-header('location:VerificationCard.php');
+header('location:Admin.php');
 }
          
     if(isset($_REQUEST["rej"]))

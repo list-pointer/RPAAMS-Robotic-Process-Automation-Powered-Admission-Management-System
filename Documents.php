@@ -1,4 +1,4 @@
-<?php
+<? php
 
 
 error_reporting(0);
@@ -71,7 +71,7 @@ include 'FileUpload.php';
                                      <input type="file" id="fdmdoc" name="fdmdoc"><br>
                                      
                                  </td>
-                             </tr>
+                            </tr>
                              <tr>
                                 <td>
                                     12th/Diploma Leaving  Certificate :
@@ -119,8 +119,7 @@ include 'FileUpload.php';
                                     and belief. I shall abide by the rules and regulations laid down by the College from time to time.
                                     In case the particulars furnished by me are found false, my admission stands canceled.
                           
-                                </font></p>
-                            
+                                </font></p>  
                   </div>
             </div>
         </form>

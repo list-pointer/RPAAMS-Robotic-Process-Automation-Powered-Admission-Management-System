@@ -6,50 +6,64 @@ $sp=mysqli_connect("localhost","root","","rpaams");
                 echo "Error <br/>".$sp->error;
 }
 
-$picpath="studentpic/";
-$docpath_aadhar="aadhar/";
-$docpath_hsc="hsc/";
-$docpath_ssc="ssc/";
-$docpath_hsc_lc="hsc_lc/";
-$docpath_ssc_lc="ssc_lc/";
-$proofpath="studentproof/";
+//target directory
+$picpath="Uploads/studentpic/";
+$docpath_aadhar="Uploads/aadhar/";
+$docpath_hsc="Uploads/hsc/";
+$docpath_ssc="Uploads/ssc/";
+$docpath_hsc_lc="Uploads/hsc_lc/";
+$docpath_ssc_lc="Uploads/ssc_lc/";
+$proofpath="Uploads/studentproof/";
 $id=$_SESSION['user'];
+
 if(isset($_POST['fpicup']))
 {
-$picpath=$picpath.$_FILES['fpic']['name'];
-$docpath1=$docpath_ssc.$_FILES['ftndoc']['name']; 
-$docpath2=$docpath_ssc_lc.$_FILES['ftcdoc']['name'];   
-$docpath3=$docpath_hsc.$_FILES['fdmdoc']['name'];  
-$docpath4=$docpath_hsc_lc.$_FILES['fdcdoc']['name']; 
-$proofpath1=$docpath_aadhar.$_FILES['fide']['name'];      
-$proofpath2=$proofpath.$_FILES['fsig']['name']; 
+$picpath1=$picpath.basename($_FILES['fpic']['name']);
+$docpath1=$docpath_ssc.basename($_FILES['ftndoc']['name']); 
+$docpath2=$docpath_ssc_lc.basename($_FILES['ftcdoc']['name']);   
+$docpath3=$docpath_hsc.basename($_FILES['fdmdoc']['name']);  
+$docpath4=$docpath_hsc_lc.basename($_FILES['fdcdoc']['name']); 
+$proofpath1=$docpath_aadhar.basename($_FILES['fide']['name']);      
+$proofpath2=$proofpath.basename($_FILES['fsig']['name']); 
 
-if(move_uploaded_file($_FILES['fpic']['tmp_name'],$picpath)
-  && move_uploaded_file($_FILES['ftndoc']['tmp_name'],$docpath1)
-  && move_uploaded_file($_FILES['ftcdoc']['tmp_name'],$docpath2)
-  && move_uploaded_file($_FILES['fdmdoc']['tmp_name'],$docpath3)
-  && move_uploaded_file($_FILES['fdcdoc']['tmp_name'],$docpath4)
-  && move_uploaded_file($_FILES['fide']['tmp_name'],$proofpath1)
-  && move_uploaded_file($_FILES['fsig']['tmp_name'],$proofpath2))
+//file extension extrcation
+$picpath_ext=substr($picpath1, strripos($picpath1, '.'));
+$docpath1_ext=substr($docpath1, strripos($docpath1, '.'));
+$docpath2_ext=substr($docpath2, strripos($docpath2, '.'));   
+$docpath3_ext=substr($docpath3, strripos($docpath3, '.'));  
+$docpath4_ext=substr($docpath4, strripos($docpath4, '.')); 
+$proofpath1_ext=substr($proofpath1, strripos($proofpath1, '.'));      
+$proofpath2_ext=substr($proofpath2, strripos($proofpath2, '.'));
+
+
+//new file names
+$pic=$id."_PIC".$picpath_ext;
+$ssc=$id."_SSC".$docpath1_ext;
+$ssc_lc=$id."_SSC_LC".$docpath2_ext;
+$hsc=$id."_HSC".$docpath3_ext;
+$hsc_lc=$id."_HSC_LC".$docpath4_ext;
+$aadhar=$id."_AADHAR".$proofpath1_ext;
+$sign=$id."_SIGN".$proofpath2_ext;
+
+
+if(move_uploaded_file($_FILES['fpic']['tmp_name'],$picpath.$pic)
+  && move_uploaded_file($_FILES['ftndoc']['tmp_name'],$docpath_ssc.$ssc)
+  && move_uploaded_file($_FILES['ftcdoc']['tmp_name'],$docpath_ssc_lc.$ssc_lc)
+  && move_uploaded_file($_FILES['fdmdoc']['tmp_name'],$docpath_hsc.$hsc)
+  && move_uploaded_file($_FILES['fdcdoc']['tmp_name'],$docpath_hsc_lc.$hsc_lc)
+  && move_uploaded_file($_FILES['fide']['tmp_name'],$docpath_aadhar.$aadhar)
+  && move_uploaded_file($_FILES['fsig']['tmp_name'],$proofpath.$sign))
 {
-
-$img=$_FILES['fpic']['name'];
-$img1=$_FILES['ftndoc']['name'];
-$img2=$_FILES['ftcdoc']['name'];
-$img3=$_FILES['fdmdoc']['name'];
-$img4=$_FILES['fdcdoc']['name'];
-$img5=$_FILES['fide']['name'];
-$img6=$_FILES['fsig']['name'];
 
 
 $query="insert into t_userdoc (s_id,s_pic,s_tenmarkpic,s_tencerpic,
     s_twdmarkpic, s_twdcerpic, s_idprfpic, s_sigpic) values 
-    ('$id','$img','$img1','$img2','$img3','$img4','$img5','$img6')";
+    ('$id','$pic','$ssc','$ssc_lc','$hsc','$hsc_lc','$aadhar','$sign')";
         if($sp->query($query)){
     header('location:AdmissionReport.php');    
     }else
-    {
-        alert("error 1");    
+    {   
+        header('location:error.php'); 
     }
 }
 else
