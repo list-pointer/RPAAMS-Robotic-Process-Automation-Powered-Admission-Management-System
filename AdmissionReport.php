@@ -34,6 +34,11 @@ $result = mysqli_query($con,"SELECT * FROM t_user WHERE s_id='".$_SESSION['user'
         window.print()
         printButton.style.visibility = 'visible';
     }
+
+        function login() {
+window.location.href = "index.php";
+    }
+
     </script>
 
 
@@ -417,9 +422,16 @@ $result = mysqli_query($con,"SELECT * FROM t_user WHERE s_id='".$_SESSION['user'
     <?php
               }
         ?>
-    <center> <input type="submit" id="print" class="toggle btn btn-primary" value="Print" onclick="printpage();">
-        <a href="logout.php">Login Again</a>
+        <center>
+        <table id="tabintro">
+                <tr>
+                    <td colspan="4">
+     <input type="submit" id="print" class="toggle btn btn-primary" value="Print" onclick="printpage();" style="width:300px;margin-bottom: 30px;">
+        
+
+         <input type="submit" class="toggle btn btn-primary" value="Login" style="width:300px;margin-bottom: 30px;margin-left: 10px;" onclick="login();">
     </center>
+</center></td></tr></table></center>
 </body>
 
 </html>
