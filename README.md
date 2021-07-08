@@ -24,7 +24,7 @@ task bots will scrape data from the forms and supporting documents. After compar
 
 ## Tech
 
-Corona Virus Tracker uses the folwoing Tech:
+RPAAMS uses the folwoing Tech:
 
 - [RPA]  
 - [Automation Anywhere] 
